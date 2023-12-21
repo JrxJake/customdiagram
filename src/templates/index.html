@@ -1,0 +1,50 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Select Year, Make, Model</h1>
+
+    <!-- Year dropdown -->
+    <label for="selectYear">Year:</label>
+    <select id="selectYear">
+        <option value="option1">2022</option>
+        <option value="option2">2021</option>
+        <!-- <option value="option3">Option 3</option> -->
+    </select>
+
+    <!-- Make dropdown -->
+    <label for="selectMake">Make:</label>
+    <select id="selectMake">
+        <option value="option1">Toyota</option>
+        <option value="option2">Dodge</option>
+        <!-- <option value="option3">Option 3</option> -->
+    </select>
+
+    <!-- Model dropdown -->
+    <label for="selectModel">Model:</label>
+    <select id="selectModel">
+        <option value="option1">4Runner</option>
+        <option value="option2">Tundra</option>
+        <!-- <option value="option3">Option 3</option> -->
+    </select>
+
+    <button onclick="redirectToNextPage()"id="submitButton">Submit</button>
+
+    <!-- Include a script tag to link to your JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        function redirectToNextPage() {
+            // Get the selected option
+            var selectedOption = document.getElementById('selectModel').value;
+
+            // Redirect to the next page with the selected option as a parameter
+            window.location.href = '/display?option=' + selectedOption;
+        }
+    </script>
+</body>
+</html>

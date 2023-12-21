@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <img id = "image" src="https://trail4runner.com/wp-content/uploads/2021/01/c4_fabrication_overland_bumper_37.jpg">
+
+    <script>
+        // Function to get URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Get the option from the URL
+        var selectedOption = getParameterByName('option');
+
+        // Get the image element by its ID
+        var imageElement = document.getElementById('image');
+
+        // Change the src attribute based on the selected option
+        if (selectedOption == 'option1') {
+            imageElement.src = 'https://trail4runner.com/wp-content/uploads/2021/01/c4_fabrication_overland_bumper_37.jpg';
+        } else if (selectedOption == 'option2') {
+            imageElement.src = 'https://www.xoverland.com/wp-content/uploads/orion-min-1.jpg';
+        } else {
+            // Default to a default image or handle other cases
+            imageElement.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png';
+        }
+    </script>
+
+
+
+</body>
+</html>
